@@ -1,7 +1,5 @@
-'use client';
-
-import Link from 'next/link';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, Waves } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -22,7 +20,7 @@ export function Header() {
     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
       <div className="container flex h-14 items-center justify-between rounded-full bg-gray-900/80 px-6 text-gray-200 backdrop-blur-sm shadow-lg border border-white/10">
         <div className="flex items-center">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link to="/" className="mr-6 flex items-center space-x-2">
             <Waves className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline sm:inline-block text-white">
               JDE Aural
@@ -32,7 +30,7 @@ export function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="font-medium text-gray-300 transition-colors hover:text-white"
               >
                 {link.label}
@@ -53,7 +51,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="pr-0 bg-gray-900 text-white border-r-gray-800">
               <Link
-                href="/"
+                to="/"
                 className="mb-8 flex items-center"
                 onClick={() => setIsOpen(false)}
               >
@@ -64,7 +62,7 @@ export function Header() {
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
-                    href={link.href}
+                    to={link.href}
                     onClick={() => setIsOpen(false)}
                     className="text-lg hover:text-primary"
                   >
@@ -75,7 +73,7 @@ export function Header() {
             </SheetContent>
           </Sheet>
           <Button asChild className="hidden md:inline-flex">
-            <Link href="/contact">Contact Us</Link>
+            <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
       </div>
